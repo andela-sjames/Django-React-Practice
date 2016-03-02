@@ -60,3 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# environment files
+.env.*
+
+# escape database
+db.sqlite3

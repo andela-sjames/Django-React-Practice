@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <h1>single bands page</h1>
+
+        <h3>{{ band.name|title }}</h3> <br>
+
+        <img src="{{ band.image }}"><br>
+
+        <p> {{ band.bio }}</p>
+
+        <h2>This band was added {{ band.date_added }}</h2>
+
+{% endblock %}
