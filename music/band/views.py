@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.http import Http404
 
+from rest_framework import generics
+from rest_framework.response import Response
+
+from serializers import BandSerializer
 from band.models import Band
 
 
@@ -31,3 +35,25 @@ class BandListView(TemplateView):
 class HomeView(TemplateView):
 
     template_name = 'band/home.html'
+
+
+# define Rest class below.
+
+class BandApiView(generics.RetrieveUpdateDestroyAPIView):
+
+    model = Band
+    serializer_class = BandSerializer
+
+    def get_object(self, band_id):
+        try:
+            return Band.objects.get(id=band_id)
+        except Band.DoesNotExist:
+            raise Http404
+
+    def get(self, request, band_id, format=None):
+        band = self.get_object(band_id)
+        serializer = BandSerializer(band)
+        return Response(serializer.data)
+
+
+
