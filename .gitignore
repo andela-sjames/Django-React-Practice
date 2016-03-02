@@ -66,3 +66,14 @@ target/
 
 # escape database
 db.sqlite3
+
+#escape gulp
+node_modules/
+
+# Mac OS Desktop Store
+*/.DS_Store
+.DS_Store
+
+# staticfiles
+music/staticfiles/
+
