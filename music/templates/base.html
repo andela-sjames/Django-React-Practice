@@ -13,6 +13,9 @@
 
     <title>{% block title %}Band{% endblock %}</title>
 
+     <link href="{% static 'build/css/index.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+
     <!-- Bootstrap Core CSS <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
 
@@ -35,6 +38,18 @@
 
 
     {% endblock main %}
+
+{% block base_js %}
+    <!-- jQuery -->
+    <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+    <!--React-->
+    <script src="{% static 'bower_components/react/react.min.js' %}"></script>
+    <!--React-Dom-->
+    <script src="{% static 'bower_components/react/react-dom.min.js' %}"></script>
+    <!--indexReact-->
+    <script src="{% static 'build/js/reactmusicjsx.js' %}"></script>
+
+{% endblock %}
 </body>
 
 </html>
