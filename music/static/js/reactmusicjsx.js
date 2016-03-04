@@ -42,7 +42,14 @@ var BandComponent = React.createClass({
                 <button onClick={this.loadBandFromServer}> Click here Now</button>
                 <button onClick = {this.customClickFunction}>Click Me!! </button>
 
-                <Band value={this.state.data}/>
+                {
+                    this.props.bands.map(function(band) {
+                    return (<Band band={band}/>);
+                })
+            }
+
+            <Band value={this.state.data}/>
+
             </div>
         )
     }
@@ -50,6 +57,14 @@ var BandComponent = React.createClass({
 
 var Band = React.createClass({
     render: function() {
+        if (this.props.band){
+            return (
+                    <div>
+                        <h1>{this.props.band.name}</h1>
+                        <img src ={this.props.band.image}/>
+                    </div>
+                )
+        }
 
         return (
             <div>

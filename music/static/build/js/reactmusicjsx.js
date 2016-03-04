@@ -55,6 +55,9 @@ var BandComponent = React.createClass({
                 { onClick: this.customClickFunction },
                 "Click Me!! "
             ),
+            this.props.bands.map(function (band) {
+                return React.createElement(Band, { band: band });
+            }),
             React.createElement(Band, { value: this.state.data })
         );
     }
@@ -64,6 +67,18 @@ var Band = React.createClass({
     displayName: "Band",
 
     render: function () {
+        if (this.props.band) {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "h1",
+                    null,
+                    this.props.band.name
+                ),
+                React.createElement("img", { src: this.props.band.image })
+            );
+        }
 
         return React.createElement(
             "div",
